@@ -30,37 +30,41 @@ const   double         eps = 0;
 const   int            ms = 0;
 const   int            md = 0;
 const   int            mxn = 105;
-const   int            MAXN = 100010;
- 
-int A, B, n;
-int a[MAXN], b[MAXN];
- 
-void solve()
-{
-	scanf("%d%d%d", &A, &B, &n);
-	for (int i = 1; i <= n; ++i)
-		scanf("%d", &a[i]);
-	for (int i = 1; i <= n; ++i)
-		scanf("%d", &b[i]);
-	int64_t damage = 0;
-	for (int i = 1; i <= n; ++i)
-		damage += int64_t(b[i] + A - 1) / A * a[i];
-    cout << damage;
-	for (int i = 1; i <= n; ++i){
-        cout << B - (damage - a[i]);
-		if (B - (damage - a[i]) < 0)
-		{
-			puts("YES");
-			return;
-		}
+
+int main(){
+    //freopen("textin.inp","r",stdin);
+    //freopen("text.out", "w", stdout);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    cii(a, b);
+    int counter = 0;
+    for(int i = 1; i < a + 1; i++){
+        bool isEven = false;
+        if(i%2 == 0){
+            isEven = true;
+        }
+        for(int j = 1; j < b + 1; j++){
+            if(i%2 == 1){
+                cout << "#";
+            }
+            else{
+                if(counter%2 == 0){
+                    if(j == b){
+                        cout << "#";
+                    }else cout << ".";
+                }else{
+                    if(j == 1){
+                        cout << "#";
+                    }else cout << ".";
+                }
+
+            }
+        }
+        if(isEven){
+            counter++;
+        }
+        cout << endl;
     }
-	puts("NO");
 }
- 
-int main()
-{
-	int tests;
-	scanf("%d", &tests);
-	while (tests--) solve();
-	return 0;
-}
+
