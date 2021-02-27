@@ -13,10 +13,10 @@ using namespace std;
 #define cii(x, y)     int x, y;    cin>>x>>y;
 #define ciii(x, y, z) ll x, y, z; cin>>x>>y>>z;
 #define TC(x)          ci(x); while(x --)
-#define rep(i, x, y)   for (int i = x; i < y; i ++)
-#define repr(i, x, y)  for (int i = x; i > y; i --)
+#define rep(i, x, y)   for ( int i = x; i <= y; i ++)
+#define repi(i, x, y)  for ( int i = x; i >= y; i --)
 #define forn(i, n)     for(int i = 0; i < n; i++)
-#define fore(itr, x)   for (itr = x.begin(); itr != x.end(); itr ++)
+#define fore(itr, x)   for ( = x.begin(); itr != x.end(); itr ++)
 #define forei(itr, x)  for (itr = x.end() - 1; itr != x.begin() - 1; itr --)
 #define endl "\n"
 typedef unsigned long long      ull;
@@ -32,20 +32,26 @@ const   int            ms = 0;
 const   int            md = 0;
 
 void solve(){
-   int n;
-   cin >> n;
-   int ar[n];
-   forn(i, n){
-       cin >> ar[i];
-   }
-   sort(ar, ar+n);
-   for(int i = 0; i < n - 1; i++){
-       if(abs(ar[i] - ar[i+1]) > 1){
-           cout << "NO" << endl;
-           return;
-       }
-   }
-   cout << "YES" << endl;
+    int count = 0;
+    int n;
+    cin >> n;
+    int arr[n];
+    forn(i, n){
+        cin >> arr[i];
+    }
+    for(int i = 0; i < n - 1; i++){
+        int a = min(arr[i], arr[i+1]);
+        int b = max(arr[i], arr[i+1]);
+        if(2*a < b){
+            count++;
+        }
+        int c = a*2;
+        while(2*c < b){
+            c*=2;
+            count++;
+        }
+    }
+    cout << count << endl;
 }
 
 int main() {

@@ -32,15 +32,29 @@ const   int            ms = 0;
 const   int            md = 0;
 
 void solve(){
-   int n;
-   cin >> n;
-   int ar[n];
+   ci(n);
+   ll arr[n];
    forn(i, n){
-       cin >> ar[i];
+       cin >> arr[i];
    }
-   sort(ar, ar+n);
+   ll mini = 0;
    for(int i = 0; i < n - 1; i++){
-       if(abs(ar[i] - ar[i+1]) > 1){
+       if(arr[i+1] > arr[i]){
+           continue;
+       }
+       else{
+           ll ans = abs(arr[i] - mini);
+           arr[i] = arr[i] - ans;
+           arr[i+1] = arr[i+1] + ans;
+            // if(arr[i] < 0 || arr[i] == arr[i-1]){
+            //     cout << "NO" << endl;
+            //     return;
+            // }
+       }
+       mini++;
+   }
+   for(int i = 0; i < n-1; i++){
+       if(arr[i+1] == arr[i] || arr[i] < 0){
            cout << "NO" << endl;
            return;
        }
@@ -55,5 +69,5 @@ int main() {
     cin.tie(0);
     TC(x){
         solve();
-    }   
+    }
 }

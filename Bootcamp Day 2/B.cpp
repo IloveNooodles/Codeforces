@@ -31,11 +31,20 @@ const   int            ms = 0;
 const   int            md = 0;
 const   int            mxn = 105;
 
-ll ceili(ll a, ll b){
-    if(a%b != 0){
-        return a/b + 1;
+int a;
+int prefs[11][1e6];
+
+void prefSum(){
+    for(int i = 1; i <= 1e6; i++){
+        if(isPrime){
+            pref[1]++;
+        }
     }
-    return a/b;
+    forn(int i = 1; i <= 1e6; i++){
+        pref[2] = pref[1] -  
+    }
+
+    for(in)
 }
 
 int main(){
@@ -45,10 +54,32 @@ int main(){
     cin.tie(0);
     cout.tie(0);
     TC(x){
-        cii(a, b);
-        ll ans = max(a, b) - min(a, b);
-        ans = ceili(ans, 10);
-        cout << ans << endl;
+        ciii(a,b,n);
+        int ans = 0;
+        int temp = 0;
+       
     }
 }
+    //     for(int j = a; j <= b; j++){
+    //         int factor = 0;
+    //         temp = j;
+    //         for(int i = 2; i*i <= b; i++){
+    //             if(j%i == 0){
+    //                 while(j%i == 0){
+    //                     factor++;
+    //                     j /= i;
+    //                 }
+    //             }
+    //             if(factor > n){
+    //                 continue;
+    //             }
+    //         }
+    //         if(factor > n){
+    //             continue;
+    //         }
+    //         ans++;
+    //     }
+    //     cout << ans << endl;
+    // }
+
 

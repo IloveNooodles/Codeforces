@@ -32,20 +32,8 @@ const   int            ms = 0;
 const   int            md = 0;
 
 void solve(){
-   int n;
-   cin >> n;
-   int ar[n];
-   forn(i, n){
-       cin >> ar[i];
-   }
-   sort(ar, ar+n);
-   for(int i = 0; i < n - 1; i++){
-       if(abs(ar[i] - ar[i+1]) > 1){
-           cout << "NO" << endl;
-           return;
-       }
-   }
-   cout << "YES" << endl;
+   ci(n);
+   
 }
 
 int main() {
@@ -55,5 +43,5 @@ int main() {
     cin.tie(0);
     TC(x){
         solve();
-    }   
+    }
 }

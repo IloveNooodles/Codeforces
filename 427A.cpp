@@ -32,20 +32,21 @@ const   int            ms = 0;
 const   int            md = 0;
 
 void solve(){
-   int n;
-   cin >> n;
-   int ar[n];
+   ci(n);
+   int police = 0;
+   int cases = 0;
    forn(i, n){
-       cin >> ar[i];
-   }
-   sort(ar, ar+n);
-   for(int i = 0; i < n - 1; i++){
-       if(abs(ar[i] - ar[i+1]) > 1){
-           cout << "NO" << endl;
-           return;
+       int x;
+       cin >> x;
+       if(x == -1 && police < 1){
+           cases++;
+       }else if(x == -1 && police >= 1){
+           police--;
+       }else{
+           police += x;
        }
    }
-   cout << "YES" << endl;
+   cout << cases;
 }
 
 int main() {
@@ -53,7 +54,8 @@ int main() {
     //freopen("text.out", "w", stdout);
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    TC(x){
-        solve();
-    }   
+    // TC(x){
+    //     solve();
+    // }
+    solve();   
 }

@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <numeric>
 using namespace std;
 
 #define mp             make_pair
@@ -13,10 +12,9 @@ using namespace std;
 #define cii(x, y)     int x, y;    cin>>x>>y;
 #define ciii(x, y, z) ll x, y, z; cin>>x>>y>>z;
 #define TC(x)          ci(x); while(x --)
-#define rep(i, x, y)   for (int i = x; i < y; i ++)
-#define repr(i, x, y)  for (int i = x; i > y; i --)
-#define forn(i, n)     for(int i = 0; i < n; i++)
-#define fore(itr, x)   for (itr = x.begin(); itr != x.end(); itr ++)
+#define rep(i, x, y)   for ( int i = x; i <= y; i ++)
+#define repi(i, x, y)  for ( int i = x; i >= y; i --)
+#define fore(itr, x)   for ( = x.begin(); itr != x.end(); itr ++)
 #define forei(itr, x)  for (itr = x.end() - 1; itr != x.begin() - 1; itr --)
 #define endl "\n"
 typedef unsigned long long      ull;
@@ -26,27 +24,11 @@ typedef pair<int, ii>  iii;
 typedef vector<int>    vi;
 typedef vector<ii>     vii;
 typedef vector<iii>    viii;
-const   int            inf = 1e9 + 5;
+const   int            inf = 1e9;
+const   int            mod = 1e9+7;
 const   double         eps = 0;
 const   int            ms = 0;
 const   int            md = 0;
-
-void solve(){
-   int n;
-   cin >> n;
-   int ar[n];
-   forn(i, n){
-       cin >> ar[i];
-   }
-   sort(ar, ar+n);
-   for(int i = 0; i < n - 1; i++){
-       if(abs(ar[i] - ar[i+1]) > 1){
-           cout << "NO" << endl;
-           return;
-       }
-   }
-   cout << "YES" << endl;
-}
 
 int main() {
     //freopen("textin.inp","r",stdin);
@@ -54,6 +36,13 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     TC(x){
-        solve();
-    }   
+        cii(m, n);
+        ll ans = 0;
+        vi dp(inf, 0);
+        dp[0] = 1;
+        dp[1] = 1;
+        for(int i = 2; i <= inf; i++){
+            dp[i] += (dp[i-1] + dp[i-2])%mod;
+        }
+    }
 }
